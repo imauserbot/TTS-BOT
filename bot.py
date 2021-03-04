@@ -8,16 +8,12 @@ from pyrogram.types import ForceReply
 from gtts import gTTS
 from gtts.lang import tts_langs
 
-if bool(os.environ.get("WEBHOOK", False)):
-    from sample_config import Config
-else:
-    from config import Config
    
 tts = Client(
     "text to speech bot",
-    api_id=Config.API_ID,
-    api_hash=Config.API_HASH,
-    bot_token=Config.TG_BOT_TOKEN,
+    api_id = os.getenv("API_ID"),
+    api_hash = os.getenv('API_HASH"),
+    bot_token = os.getenv("TG_BOT_TOKEN"),
 )
 
 
